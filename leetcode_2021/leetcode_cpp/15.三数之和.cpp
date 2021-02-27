@@ -11,6 +11,10 @@ public:
 
         vector<vector<int>> a;
         for (auto iter = nums.begin(); iter <= nums.end()-3 && *iter <= 0; ) {
+            if (iter >= nums.begin() + 1 && *iter == *(iter-1)) {
+                iter += 1;
+                continue;
+            }
             auto left = iter + 1;
             auto right = nums.end() - 1;
 
@@ -26,7 +30,7 @@ public:
                     for (; left < right && *iter + *left + *right > 0; --right);
                 }
             }
-            for (auto n = *iter; iter <= nums.end() - 3 && n == *iter; ++iter);
+            iter += 1;
         }
         return a;
     }
