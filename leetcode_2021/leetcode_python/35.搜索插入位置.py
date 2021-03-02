@@ -11,4 +11,4 @@ class Solution:
                 right = mid - 1
             else:
                 left = mid + 1
-        return left
+        return right + 1 # (while left <= right停止条件是left = right+1)
